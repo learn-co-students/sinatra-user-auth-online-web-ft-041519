@@ -1,3 +1,16 @@
+<!-- views/registrations sub-directory contains one file, the template for the new user sign-up form. -->
+<!-- template will be rendered by the get '/registrations/signup' route in our controller-->
+<!-- This form will POST to the post '/registrations' route in our controller.-->
+
+
 <h1>Sign Up Below:</h1>
 
-
+<form method="post" action="/registrations">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name"><br>
+  <label for="">Email:</label>
+  <input type="text" id="email" name="email"><br>
+  <label for="password">Password:</label>
+  <input type="text" id="password" name="password"><br>
+  <input type="submit" value="Sign Up">
+</form>
