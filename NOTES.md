@@ -1,4 +1,1 @@
-show all
-show one
-new before show because it prevents a false match to id
-rack method override gives access to patch and delete
+Session cookies allow a website to keep track of your movement from page to page for that specific session (from the time you log in to the time you log out or close the browser). Session cookies simply allow you to navigate through a site without repeatedly having to authenticate yourself on every new page you visit within the web application domain. Session cookies expire every time you log out or navigate away from the website.

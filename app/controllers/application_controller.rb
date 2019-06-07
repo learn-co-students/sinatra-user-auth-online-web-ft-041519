@@ -3,13 +3,17 @@ class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   set :views, Proc.new { File.join(root, "../views/") }
 
-  configure do  #allows data to persist
-    enable :sessions
-    set :session_secret, "secret"
-  end
+  configure do                    #--------------- Session cookies allow a website to keep track of your movement from page to page for that specific session
+    enable :sessions              #--------------- (from the time you log in to the time you log out or close the browser). Session cookies simply allow you
+    set :session_secret, "secret" #--------------- to navigate through a site without repeatedly having to authenticate yourself on every new page you visit
+  end                             #--------------- within the web application domain. Session cookies expire every time you log out or navigate away from
+                                  #--------------- the website.
+
+
+
 
   get '/' do
-    erb :home
+    erb :home #render the app/views/home.erb
   end
 
   get '/registrations/signup' do  #--------------- render the sign-up form view which can be found in app/views/registrations/signup.erb
@@ -44,9 +48,9 @@ class ApplicationController < Sinatra::Base
     redirect '/'
   end
 
-  get '/users/home' do          #--------------- responsible for rendering the user's homepage view.
+  get '/users/home' do            #---------------1. First this route finds the current user based on the ID value stored in the session hash
 
-    @user = User.find(session[:user_id])
-    erb :'/users/home'
+    @user = User.find(session[:user_id])#---------2. Then, it sets an instance variable, @user, equal to that found user, allowing us to access the current user in the corresponding view page.
+    erb :'/users/home'            #---------------3. Finally it renders the user's homepage view.
   end
 end
